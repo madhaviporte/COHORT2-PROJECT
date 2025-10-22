@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    width: 100%;
+    /* background-color: lightseagreen; */
+}
+/* #parent{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50% 50%;
+} */
+/* #child1{
+    background-color: lightseagreen;
+}
+#child1{
+    background-color: darkblue;
+}
+#child1{
+    background-color: darkcyan;
+}  */
+/* .box{
+    width: 200px;
+    height: 200px;
+    background-color: crimson;
+    border-top: 2px solid white;
+    border: 5px solid black;
+}
+.box:nth-last-child(2n){
+    background-color:lightblue;
+    border-bottom: 2px solid;
+}
+ .box:nth-child(3n){
+    background-color: khaki;
+ }
+ .box:nth-child(4n){
+
+    background-color:lightseagreen;
+ } */
+
+body{
+    background-color: black;
+}
+h1{
+    font-size: 200px;
+    color: transparent;
+    background: linear-gradient(red,blue);
+    background-clip: text;
+    /* background-image: url(https://images.unsplash.com/photo-1760985813018-b6b951c57fe8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900); */
+    /* background-position: center; */
+    background-image: url(https://media1.giphy.com/media/3o6ZsUJ8IGs7yHbVdu/source.gif);
+    background-size: cover;
+}
+#parent{
+    height: 400px;
+    width: 100%;
+    background-color: #333;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+    /* overflow: hidden; */
+    overflow: auto;
+}
+#parent::-webkit-scrollbar{
+   background-color: rgba(222, 184, 135, 0.227);
+   height: 20px;
+}
+#parent::-webkit-scrollbar-thumb{
+  background-color: rgba(20, 4, 4, 0.967);
+}
+.child{
+    height: 100%;
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+.child img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* background-size: cover; */
+    border-radius: 20px;
+}
