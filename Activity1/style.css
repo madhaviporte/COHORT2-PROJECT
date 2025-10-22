@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gilroy';
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+
+}
+
+#navbar {
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.93);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+#navbar h1 {
+    color: rgba(255, 255, 255, 0.721);
+    font-size: 13px;
+    font-weight: 10;
+
+}
+
+header {
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.833);
+}
+
+header p {
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#container {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-image: url(https://www.apple.com/v/macbook-pro/at/images/overview/welcome/hero_endframe__e4ls9pihykya_small_2x.jpg);
+    background-size: cover;
+    /* background: fixed; */
+    /* background-position: center; */
+}
+
+#container h1,
+h3,
+h6 {
+    color: white;
+}
+
+#container h1 {
+    font-size: 60px;
+    padding-top: 30px;
+}
+
+#container h3 {
+    font-size: 30px;
+    padding-top: 5px;
+    font-weight: 500;
+}
+
+#container h6 {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.686);
+    font-weight: 10;
+}
+
+#button {
+    position: absolute;
+    left: 41%;
+    top: 39%;
+    transform: translate(-50% -50%);
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 30px;
+    width: 500px
+}
+#button button{
+    height: 40px;
+    width: 120px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgba(0, 157, 255, 0.901);
+    color: white;
+}
+
