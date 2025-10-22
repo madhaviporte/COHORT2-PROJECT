@@ -7,27 +7,29 @@
 html,body{
    height: 100%;
    width: 100%;
+   /* display: flow-root; */
 }
 main{
-    height: 100vh;
-    width: 100vw;
-    /* background-color: black; */
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
     display: grid;
-    grid-template-rows: 80px 200px 0.5fr 0.5fr;
+    grid-template-rows: 50px 100px 450px 1fr  ;
     grid-template-columns:1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-    padding: 10px;
+    /* grid-gap: 10px; */
+    /* padding: 10px; */
     grid-template-areas:
     "nav nav nav nav"
     "aside section section section"
     "figure figure figure figure"
     "div1 div2 div3 div4" 
     ;
-    }
+}
 #nav{
   background-color:white;
   grid-area: nav;
   display: flex;
+  padding: 10px;
   justify-content: center;
   /* position: relative; */
   /* align-items: center; */
@@ -62,32 +64,79 @@ main{
     background-color: transparent;
 }
 
-section{
-    background-color: aqua;
+#section{
     grid-area: section;
+    gap: 30px;
+    padding-left: 60px;
+    padding-top: 10px;
+}
+#section p{
+    font-size: 15px;
+    font-weight: 50;
+    word-spacing: 5px;
+    align-items: center;
+}
+#section #btn2 {
+      display: flex;
+      gap: 30px;
+      padding-top: 20px;
+}
+#section #btn2 button{
+    background-color: rgba(0, 89, 255, 0.844);
+    border-radius: 50px;
+    height: 35px;
+    width: 100px;
+    font-size: 15px;
 }
 aside{
-    background-color: brown;
+    /* background-color: brown; */
     grid-area: aside;
+    font-size: 30px;
+    font-weight: 900;
+    padding: 30px;
 }
 figure{
-    background-color: darkgreen;
+    /* background-color: darkgreen; */
     grid-area: figure;
+    background-image: url(https://images.unsplash.com/photo-1761069234555-272f68348b53?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900);
+    /* background-position: center; */
+    background-size: cover;
+    margin: 50px;
+    border-radius: 30px;
 }
 #div1{
-    background-color: blueviolet;
+    background-color: white;
     grid-area: div1;
+    padding: 20px;
+}
+#div1 p{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.467);
 }
 #div2{
-    background-color: blueviolet;
+    background-color: white;
     grid-area: div2;
+    padding: 20px;
+}
+#div2 p{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.467);
 }
 #div3{
-    background-color: blueviolet;
+    background-color: white;
     grid-area: div3;
+    padding: 20px;
+}
+#div3 p{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.467);
 }
 #div4{
-    background-color: blueviolet;
+    background-color: white;
     grid-area: div4;
+    padding: 20px;
 }
-
+#div4 p{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.467);
+}
