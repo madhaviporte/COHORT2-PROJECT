@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  height: 0;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  display: grid;
+  grid-template-rows: 10px 20px 30px 10px 40px 10px 25px 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "tap tap tap tap tap tap tap tap" "header  header header header header header header header" "section section section section section section section section" "head head head head head head head head" "";
+}/*# sourceMappingURL=style.css.map */

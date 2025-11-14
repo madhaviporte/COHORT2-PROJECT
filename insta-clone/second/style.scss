@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    // display: flex;
+    // justify-content: center;
+    // background-color: black;
+    // padding: 20px;
+}
+
+@mixin fleCenter() {
+    position: absolute;
+    padding: 10px;
+    // left: 0;
+    right: 0;
+    display: flex;
+    gap: 2%;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    background-color: wheat;
+
+    header {
+        // position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 3vh;
+        background-color: red;
+
+        #left-icon {
+            position: absolute;
+            padding: 5px;
+            font-size: 0.8em;
+            left: 0;
+            display: flex;
+            gap: 2%;
+
+            h1 {
+                font-size: 0.8em;
+                // margin-top: 10px;
+                font-weight: 800;
+            }
+
+        }
+
+        #right-icon {
+            position: absolute;
+            font-size: 1em;
+            right: 0;
+            display: flex;
+            gap: 2%;
+            padding: 8px;
+
+            h2 {
+                font-size: 0.8em;
+                font-weight: 800;
+            }
+        }
+    }
+
+    #head {
+        height: 7vh;
+        width: 100vw;
+        background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        #name {
+            @include fleCenter();
+            left: 0;
+            font-size: 30px;
+            font-style: italic;
+            font-weight: 900 // padding: 10px;
+        }
+
+        #icon {
+            @include fleCenter();
+            right: 0;
+            padding: 8px;
+            gap: 13px;
+            font-size: 25px;
+        }
+    }
+
+    .story {
+        display: flex;
+        gap: 30px;
+        overflow: auto;
+        background-color: maroon;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        padding-left: 5px;
+
+        .photo {
+            text-align: center;
+            flex-shrink: 0;
+
+            .outer {
+                background: linear-gradient(red, yellow);
+                border-radius: 50%;
+                display: inline-block;
+
+                .inner {
+                    padding: 3px;
+
+                    img {
+                        height: 90px;
+                        width: 80px;
+                        border-radius: 50%;
+                        display: block;
+                        object-fit: cover;
+                    }
+
+
+                }
+            }
+
+            .username {
+                font-size: 14px;
+                font-weight: 800
+            }
+        }
+
+
+    }
+
+    // #story {
+    //     height: 30px;
+    //     width: 100vw;
+    //     padding: 30px;
+    //     background-color: maroon;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     gap: 10px;
+    //     flex-wrap: nowrap;
+
+    //     .photo {
+    //         height: 100px;
+    //         width: 100px;
+
+    //         background-color: purple;
+    //         position: relative;
+
+    //         overflow: hidden;
+    //         border-radius: 50px;
+
+    //         .photo img {
+    //             height: 100%;
+    //             width: 100%;
+    //             object-fit: cover;
+    //         }
+    //     }
+
+
+
+
+
+    //     // #story::-webkit-scrollbar {
+    //     //     background-color: rgba(222, 184, 135, 0.227);
+    //     //     height: 20px;
+    //     // }
+
+    // }
+
+    #user {
+        width: 100vw;
+        height: 30px;
+        background-color: palevioletred;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .left-img {
+               position: absolute;
+               left: 0;
+               height: ;
+               
+            
+
+             img {
+                height: 10px;
+                width: 100%;
+                object-fit: cover;
+                /* background-size: cover; */
+                border-radius: 20px;
+            }
+        }
+
+        .zindagi {
+            position: absolute;
+            left: 0;
+            padding-top: 5px;
+
+
+
+            h1 {
+                font-size: 0.7em;
+                font-weight: 800;
+
+            }
+
+            h5 {
+                font-size: 0.5em;
+                font-weight: 800;
+            }
+
+        }
+
+        .dot {
+            position: absolute;
+            right: 0;
+            padding-top: 5px;
+
+        }
+    }
+
+    // #figure{
+    //  height: 100%;
+    // width: 100%;
+    // background-image: url(https://images.unsplash.com/photo-1630769660701-3454835913dc?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    // background-size: cover;
+    // background-position: center;
+    // text-align: center;
+    // padding: 80px;
+    // }
+
+  
+}

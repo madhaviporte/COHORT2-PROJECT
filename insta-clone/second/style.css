@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  /* overflow: hidden; */
+}
+main header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 3vh;
+  /* background-color: red; */
+}
+main header #left-icon {
+  position: absolute;
+  padding: 5px;
+  font-size: 0.8em;
+  left: 0;
+  display: flex;
+  gap: 2%;
+}
+main header #left-icon h1 {
+  font-size: 0.8em;
+  font-weight: 800;
+}
+main header #right-icon {
+  position: absolute;
+  font-size: 1em;
+  right: 0;
+  display: flex;
+  gap: 2%;
+  padding: 8px;
+}
+main header #right-icon h2 {
+  font-size: 0.8em;
+  font-weight: 800;
+}
+main #head {
+  height: 7vh;
+  width: 100vw;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #head #name {
+  position: absolute;
+  padding: 10px;
+  right: 0;
+  display: flex;
+  gap: 2%;
+  left: 0;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 900;
+}
+main #head #icon {
+  position: absolute;
+  padding: 10px;
+  right: 0;
+  display: flex;
+  gap: 2%;
+  right: 0;
+  padding: 8px;
+  gap: 13px;
+  font-size: 25px;
+}
+main .story {
+  display: flex;
+  gap: 20px;
+  overflow: auto;
+  /* background-color: maroon; */
+  flex-wrap: nowrap;
+  overflow: hidden;
+  padding-left: 5px;
+}
+main .story .photo {
+  text-align: center;
+  flex-shrink: 0;
+}
+main .story .photo .outer {
+  background: linear-gradient(red, yellow);
+  border-radius: 50%;
+  display: inline-block;
+}
+main .story .photo .outer .inner {
+  padding: 3px;
+}
+main .story .photo .outer .inner img {
+  height: 90px;
+  width: 80px;
+  border-radius: 50%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .story .photo .username {
+  font-size: 14px;
+  font-weight: 800;
+}
+main #user {
+  width: 100vw;
+  height: 30px;
+  /* background-color: palevioletred; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #user .chhoti {
+  position: absolute;
+  left: 0;
+  height: 100px;
+}
+main #user .chhoti .child {
+  height: 100px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* background-size: cover; */
+  border-radius: 20px;
+}
+main #user .zindagi {
+  position: absolute;
+  left: 0;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+main #user .zindagi h1 {
+  font-size: 0.7em;
+  font-weight: 800;
+}
+main #user .zindagi h5 {
+  font-size: 0.5em;
+  font-weight: 800;
+}
+main #user .dot {
+  position: absolute;
+  right: 0;
+  padding-top: 5px;
+}/*# sourceMappingURL=style.css.map */
+
+figure{
+  /* height: 400px; */
+    height: 60vh;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1530910417612-701222d79f2f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170);
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+
+}
+figure .sound{
+  position: absolute;
+  right: 0;
+  bottom: 5rem;
+  padding-right:10px;
+}
+figure .sound i{
+  font-size: 20px;
+  font-weight: 900;
+}
+  #last{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 4vh;
+        /* background-color: red; */
+}
+#last .left{
+  position: absolute;
+  left: 0;
+  padding-left: 10px;
+  display: flex;
+  gap: 15px;
+}
+#last .left i{
+  font-size: 25px;
+  font-weight: 800;
+}
+
+#last .right{
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+}
+#last .right i{
+  font-size: 25px;
+  font-weight: 800;
+}
+
+#akhiri{
+  height:5vh;
+  width: 100vw;
+  /* background-color: palegreen; */
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  align-items: center;
+  /* padding:0 10px; */
+  /* gap: 40px; */
+}
+#akhiri i{
+  font-size: 25px;
+  font-weight: 800;
+}
+
+ 
