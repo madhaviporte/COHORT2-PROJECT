@@ -1,0 +1,45 @@
+.dock {
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgba(63, 63, 63, 0.395);
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+  border-radius: 0.5rem;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.dock img {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.dock .icon {
+  padding: 0.65rem;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+}
+.dock .github, .dock .cli {
+  background-color: rgba(0, 0, 0, 0.549);
+}
+.dock .note {
+  background: linear-gradient(to bottom, rgb(255, 65, 70), rgb(255, 25, 40));
+}
+.dock .pdf {
+  background: linear-gradient(to bottom, rgb(255, 179, 87), rgb(255, 153, 28));
+}
+.dock .calendar, .dock .mail {
+  background: linear-gradient(to bottom, rgb(124, 115, 255), rgb(66, 52, 255));
+}
+.dock .spotify {
+  background: linear-gradient(to bottom, rgb(78, 176, 33), rgb(53, 142, 12));
+}
+.dock .link {
+  background: linear-gradient(to bottom, rgb(163, 97, 170), rgb(142, 33, 115));
+}/*# sourceMappingURL=dock.css.map */
