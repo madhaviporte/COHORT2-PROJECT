@@ -1,0 +1,163 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #111;
+    color: #fff;
+    overflow: hidden;
+    background-image: url(https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=1170&auto=format&fit=crop);
+    background-size: cover;
+    background-position: center;
+}
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+button:active {
+    transform: translateY(3px);
+}
+
+/* ---------- Layout ---------- */
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
+/* ---------- Canvas ---------- */
+#canvas {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ---------- Elements ---------- */
+.element {
+    position: absolute;
+    cursor: move;
+}
+
+.element.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: text;
+}
+
+.selected {
+    outline: 2px solid darkcyan;
+}
+
+/* ---------- Resize Handles ---------- */
+.handle {
+    width: 8px;
+    height: 8px;
+    /* background: #fff; */
+    border: 1px solid #000;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.element:hover .handle,
+.element.selected .handle {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tl { top: -4px; left: -4px; cursor: nwse-resize; }
+.tr { top: -4px; right: -4px; cursor: nesw-resize; }
+.bl { bottom: -4px; left: -4px; cursor: nesw-resize; }
+.br { bottom: -4px; right: -4px; cursor: nwse-resize; }
+
+/* ---------- Side Panel ---------- */
+.side-panel {
+    width: 220px;
+    min-width: 180px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.side-panel input {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #525151;
+}
+
+/* ---------- Layers ---------- */
+.layers {
+    width: 150px;
+    padding: 10px;
+}
+
+.layers h3 {
+    font-weight: 300;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+    .side-panel {
+        width: 180px;
+    }
+    .layers {
+        width: 120px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+    body {
+        overflow: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #canvas {
+        width: 100%;
+        height: 60vh;
+    }
+
+    .side-panel,
+    .layers {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .side-panel input {
+        width: 48%;
+    }
+}

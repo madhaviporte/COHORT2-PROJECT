@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Figma Style Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="addRect">Rectangle</button>
+  <button id="addText">Text</button>
+  <button id="undoBtn">Undo</button>
+  <button id="redoBtn">Redo</button>
+  <button id="exportJSON">Export JSON</button>
+  <button id="exportHTML">Export HTML</button>
+</div>
+
+<div class="container">
+  <div id="canvas"></div>
+
+  <div class="side-panel">
+    <h3>Properties</h3>
+
+    <label>Width</label>
+    <input id="widthInput" type="number">
+
+    <label>Height</label>
+    <input id="heightInput" type="number">
+
+    <label>Background</label>
+    <input id="bgInput" type="color">
+
+    <label>Text</label>
+    <input id="textInput" type="text">
+
+    <label>Rotate</label>
+    <input id="rotateInput" type="number">
+  </div>
+
+  <div class="layers">
+    <h3>Layers</h3>
+    <ul id="layersList"></ul>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
