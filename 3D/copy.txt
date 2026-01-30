@@ -1,0 +1,20 @@
+1)Scene: vertual world create kiya jata hai
+2)Camera: jo bhi scene ke ander chal rha hia uusko dekhne ke liye ham screen ka use krte hai or vo screen Camera ke through hota hai
+3)Field of view: hmara Camera kitna dekh skta hai kitna capture krta hai vhi hai Field of view
+4)near: kitne pass ki chize dikha skta hia 
+5)far: kitni door ki chize dikha skti hai usko bolte hai
+6)Mash: shap + kaunse matreial se bna hai
+7)light: chize dikhegi ishke help se 
+8)direction: ekhi direction me jayegi light
+9)pointer: circular direction me light jayegi
+
+perspectiveCamera --> 4 parameter magega ye degree, aspact-Ratio, near, far 
+
+THREE js me koi unit nahi hoti hai yha par sirf numbers hote hai
+
+Mesh: combination of two thinks [shap+material]
+
+Randerer: calculation sare chizo ki ye krta hai
+
+npm init -y
+npm i express
