@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef} from 'react'
 import *as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import { OrbitControls, useAnimations, useGLTF, useTexture } from '@react-three/drei'
 import { color, sample, texture } from 'three/tsl'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Dog = () => {
+
+gsap.registerPlugin(useGSAP())
+gsap.registerPlugin(ScrollTrigger)
 
   //canvas ke ander bas use kiya jaa skta hai
 
@@ -22,17 +28,13 @@ const Dog = () => {
     actions["Take 001"].play()
   }, [actions])
 
-  const [
-    normalMap,
-    sampleMatCap,
-    
-  ] = (useTexture(["/models/dog_normals.jpg", "/matcap/mat-2.png"]))
+  const[normalMap,sampleMatCap,] =(useTexture(["/models/dog_normals.jpg", "/matcap/mat-2.png"]))
     .map(texture => {
       texture.colorSpace = THREE.SRGBColorSpace
       return texture
     })
-    const[branchMap,
-    branchNormalsMap] = (useTexture(["/models/branches_diffuse.jpeg","/models/branches_normals.jpeg"]))
+
+    const[branchMap,branchNormalsMap] = (useTexture(["/models/branches_diffuse.jpeg","/models/branches_normals.jpeg"]))
     .map(texture =>{
       texture.colorSpace = THREE.SRGBColorSpace
       return texture
@@ -56,6 +58,30 @@ const Dog = () => {
     }
 
   })
+
+  const dogModel = useRef(model)
+
+  useGSAP(()=>{ 
+    const tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:'#section-1',
+        endTrigger:'#section-3',
+        start:'top top',
+        end:'bottom bottom',
+        markers:true, 
+        scrub:true
+      }
+    })
+
+    tl.to(dogModel.current.scene.position,{
+      z:'-=0.5',
+      y:'+=0.25'
+    })
+    .to(dogModel.current.scene.rotation,{
+      x: `+={Math.PI / 15}`,
+    })
+    
+  },[])
 
   return (
     <>
