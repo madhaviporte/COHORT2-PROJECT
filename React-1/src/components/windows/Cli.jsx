@@ -1,33 +1,3 @@
-// import React from 'react'
-// import "./cli.scss"
-// import MacWindow from './MacWindow'
-// import Terminal from 'react-console-emulator'
-
-// const Cli = () => {
-//   return (
-    
-//       <MacWindow>
-//        <div className="cli-window">
-//         <Terminal commands={{
-//             echo:{
-//                 description:'Echo a passed string',
-//                 usage: 'echo <string>',
-//                 fn: (...args) => args.join('')
-//             }
-//         }}
-//         selcomeMessage={'Welcome to the React Terminal!'}
-//         promptLabel={'madhaviporte:~$'}
-//         promptLabelStyle = {{color: '#00ff00'}}
-//         />
-//        </div>
-//       </MacWindow>
-    
-//   )
-// }
-
-// export default Cli
-
-
 import React from 'react'
 import MacWindow from './MacWindow'
 import Terminal from 'react-console-emulator'
@@ -126,7 +96,7 @@ Happy exploring! 🚀
                 <Terminal
                     commands={commands}
                     welcomeMessage={welcomeMessage}
-                    promptLabel={'ankurprajapati:~$'}
+                    promptLabel={'MadhaviPorte:~$'}
                     promptLabelStyle={{ color: '#00ff00' }}
                 />
             </div>

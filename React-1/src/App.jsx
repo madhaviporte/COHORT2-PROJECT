@@ -8,17 +8,26 @@ import Note from "./components/windows/Note";
 import Resume from "./components/windows/Resume";
 import Spotify from "./components/windows/Spotify";
 import Cli from "./components/windows/Cli"
+import { resume } from "react-dom/server";
+import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-function App(){
-  return(
+function App() {
+  const [windowsState, setWindowsState] = useState({
+    github: false,
+    note: false,
+    resume: false,
+    Spotify: false,
+    Cli: false
+  })
+  return (
     <main>
-      <Dock/>
-      <Nav/>
-      <Github/>
-      <Note/>
-      <Resume/>
-      <Spotify/>
-      <Cli/>
+      <Nav />
+      <Dock windowsState={windowsState} setWindowsState={setWindowsState}/>
+      {windowsState.github && <Github windowName="github"  setWindowsState={setWindowsState}/>}
+      {windowsState.note && <Note windowName="note"  setWindowsState={setWindowsState}/>}
+      {windowsState.resume && <Resume windowName="resume" setWindowsState={setWindowsState}/>}
+      {windowsState.spotify && <Spotify windowName="spotify" setWindowsState={setWindowsState}/>}
+      {windowsState.cli && <Cli windowName="cli"  setWindowsState={setWindowsState}/>}
     </main>
   )
 }
