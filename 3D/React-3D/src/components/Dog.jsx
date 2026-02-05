@@ -28,7 +28,7 @@ gsap.registerPlugin(ScrollTrigger)
     actions["Take 001"].play()
   }, [actions])
 
-  const[normalMap,sampleMatCap,] =(useTexture(["/models/dog_normals.jpg", "/matcap/mat-2.png"]))
+  const[normalMap,sampleMatCap] =(useTexture(["/models/dog_normals.jpg", "/matcap/mat-2.png"]))
     .map(texture => {
       texture.colorSpace = THREE.SRGBColorSpace
       return texture
@@ -74,13 +74,22 @@ gsap.registerPlugin(ScrollTrigger)
     })
 
     tl.to(dogModel.current.scene.position,{
-      z:'-=0.5',
-      y:'+=0.25'
+      z:'-=0.75',
+      y:'+=0.1'
     })
     .to(dogModel.current.scene.rotation,{
-      x: `+={Math.PI / 15}`,
+      x: `+=${Math.PI / 15}`,
     })
-    
+    .to(dogModel.current.scene.rotation,{
+      y:`-=${Math.PI}`,
+      x: `+=${Math.PI / 15}`
+
+    },"third")
+    .to(dogModel.current.scene.position,{
+      x:"-=0.4",
+      z:"+=0.5",
+      y:"-=0.01"
+    },"third")
   },[])
 
   return (
