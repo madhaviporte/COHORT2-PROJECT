@@ -8,6 +8,8 @@ html, body, #root{
   width: 100%;
   /* height: 100%; */
   background-color: black;
+  color: whitesmoke;
+  font-family: 'Courier New', Courier, monospace;
 }
 main{
   position: relative;
@@ -17,4 +19,25 @@ section{
   border: 2px solid white;
   position: relative;
   z-index: 2;
+}
+#section-1 {
+   nav {
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1.5rem 2.5rem;
+   padding-top:3.5rem;
+
+   .nav-elem:nth-child(2){
+    i{
+      color: red;
+    }
+   }
+
+    svg{
+      max-width: 5rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
