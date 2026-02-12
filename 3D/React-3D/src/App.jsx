@@ -42,15 +42,62 @@ const App = () => {
                 <path d="M30.4351,61.1758h-10.4155L0,116.838H10.3479L30.4351,61.1758Z"></path>
               </svg>
         </div>
-      </nav>
       <div className="nav-elem">
         <i className="ri-arrow-right-s-line"></i>
       </div> Our Show reel
       <div className="nav-elem">
         <i className="ri-menu-3-line"></i>
       </div>
+      </nav>
+      <div className="middle">
+        <div className="left">
+          <h1>WE <br/> Make <br />Good <br />Shit</h1>
+        </div>
+        <div className="right"></div>
+      </div>
+      <div className="bottom">
+        <div className="left"></div>
+        <div className="right">
+          <p>Dogstudio is a multidisiciplinary <br />creative studio at the intersection <br /> of art, design and technology.</p>
+        </div>
+      </div>
+
+      <div className="first-line"></div>
+      <div className="second-line"></div>
     </section>
-    <section id='section-2'></section>
+    <section id='section-2'>
+      <div className="titles">
+        <div className="title">
+          <small>2020 -ONGOING</small>
+          <h1>Tomorrow land</h1>
+        </div>
+        <div className="title">
+          <small>2020 -ONGOING</small>
+          <h1>Navy Pier</h1>
+        </div>
+        <div className="title">
+          <small>2020 -ONGOING</small>
+          <h1>MSI Chicago</h1>
+        </div>
+        <div className="title">
+          <small>2020 -ONGOING</small>
+          <h1>This Was Louise's Phone</h1>
+        </div>
+        <div className="title">
+          <small>2020 -ONGOING</small>
+          <h1>KIKK Festival 2018</h1>
+        </div>
+        <div className="title">
+          <small>2020 -ONGOING</small>
+          <h1>The Kennedy Center</h1>
+        </div>
+        <div className="title">
+          <small>2020 -ONGOING</small>
+          <h1>Royal Opera Of Wallonia</h1>
+        </div>
+        
+      </div>
+    </section>
     <section id='section-3'></section>
   </main>
   )
