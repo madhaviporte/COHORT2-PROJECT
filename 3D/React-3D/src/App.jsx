@@ -8,16 +8,28 @@ const App = () => {
   return (
 
     <main>
-    <Canvas style={{
+
+      <div className="image">
+        <img src="/models/tomorrowland.png" alt="" />
+        <img src="/models/navy-pier.png" alt="" />
+        <img src="/models/msi-Chicago.png" alt="" />
+        <img src="/models/phone.png" alt="" />
+        <img src="/models/kikk.png" alt="" />
+        <img src="/models/kennedy.png" alt="" />
+        <img src="/models/opera.png" alt="" />
+      </div>
+    <Canvas 
+    id='canvas-elem'
+    style={{
       height:'100vh',
       width:'100vw',
       position:'fixed',
       top:0,
       left:0,
       zIndex:1,
-      backgroundImage:'url(/models/background-l.png)',
-      backgroundRepeat:'no-repeat',
-      backgroundSize:'cover'
+      // backgroundImage:'url(/models/background-l.png)',
+      // backgroundRepeat:'no-repeat',
+      // backgroundSize:'cover'
     }}>
       <Dog/>
     </Canvas>

@@ -25,6 +25,20 @@ section {
   z-index: 2;
 }
 
+#canvas-elem::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url(/models/background-l.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.3s linear;
+}
+
 #section-1 {
 
   --gap: 5rem;
@@ -99,9 +113,10 @@ section {
     position: absolute;
     transform: rotate(45deg) translate(0, -17rem);
   }
-  .second-line{
+
+  .second-line {
     width: 10rem;
-    background-color: rgba(255,0,0,0.396);
+    background-color: rgba(255, 0, 0, 0.396);
     height: 1px;
     position: absolute;
     transform: rotate(135deg);
@@ -110,36 +125,41 @@ section {
   }
 }
 
-#section-2{
+#section-2 {
 
-  .titles{
+  .titles {
     display: flex;
     flex-direction: column;
-    padding-left:15rem;
+    padding-left: 15rem;
     padding-block: 10rem;
 
 
-    .title{
+    .title {
       display: flex;
       gap: 4rem;
       opacity: 0.3;
-      padding-block:2rem;
+      padding-block: 2rem;
       transition: all 0.3s linear;
       cursor: pointer;
 
-      h1{
+      h1 {
         font-size: 5rem;
         font-weight: 50;
         line-height: 1;
       }
 
-      small{
+      small {
         margin-top: 0.6rem;
       }
     }
 
     .title:hover {
-opacity: 1;
+      opacity: 1;
     }
   }
+}
+
+main:has(#section-2 .title:hover) #canvas-elem::after{
+  opacity: 0;
+  
 }
