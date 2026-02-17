@@ -9,14 +9,14 @@ const App = () => {
 
     <main>
 
-      <div className="image">
-        <img src="/models/tomorrowland.png" alt="" />
-        <img src="/models/navy-pier.png" alt="" />
-        <img src="/models/msi-Chicago.png" alt="" />
-        <img src="/models/phone.png" alt="" />
-        <img src="/models/kikk.png" alt="" />
-        <img src="/models/kennedy.png" alt="" />
-        <img src="/models/opera.png" alt="" />
+      <div className="images">
+        <img id='tomorrowland' src="/models/tomorrowland.png" alt="" />
+        <img id='navy-pier' src="/models/navy-pier.png" alt="" />
+        <img id='msi-chicago' src="/models/msi-Chicago.png" alt="" />
+        <img id='phone' src="/models/phone.png" alt="" />
+        <img id='kikk' src="/models/kikk.png" alt="" />
+        <img id='kennedy' src="/models/kennedy.png" alt="" />
+        <img id='opera' src="/models/opera.png" alt="" />
       </div>
     <Canvas 
     id='canvas-elem'
@@ -79,31 +79,31 @@ const App = () => {
     </section>
     <section id='section-2'>
       <div className="titles">
-        <div className="title">
+        <div img-title="tomorrowland" className="title">
           <small>2020 -ONGOING</small>
-          <h1>Tomorrow land</h1>
+          <h1>Tomorrowland</h1>
         </div>
-        <div className="title">
-          <small>2020 -ONGOING</small>
+        <div img-title="navy-pier" className="title">
+          <small>2020 - ONGOING</small>
           <h1>Navy Pier</h1>
         </div>
-        <div className="title">
-          <small>2020 -ONGOING</small>
-          <h1>MSI Chicago</h1>
+        <div img-title="msi-chicago" className="title">
+          <small>2020 - ONGOING</small>
+          <h1> MSI Chicago </h1>
         </div>
-        <div className="title">
+        <div img-title="phone" className="title">
           <small>2020 -ONGOING</small>
           <h1>This Was Louise's Phone</h1>
         </div>
-        <div className="title">
+        <div img-title="kikk" className="title">
           <small>2020 -ONGOING</small>
           <h1>KIKK Festival 2018</h1>
         </div>
-        <div className="title">
+        <div img-title="kennedy" className="title">
           <small>2020 -ONGOING</small>
           <h1>The Kennedy Center</h1>
         </div>
-        <div className="title">
+        <div img-title="opera" className="title">
           <small>2020 -ONGOING</small>
           <h1>Royal Opera Of Wallonia</h1>
         </div>
