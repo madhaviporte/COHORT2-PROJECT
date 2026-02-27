@@ -24,8 +24,9 @@ section {
   position: relative;
   z-index: 2;
 
-/* z-index: auto; */
-
+  
+  /* z-index: auto; */
+  /* z-index: auto; */
 }
 
 #canvas-elem::after {
