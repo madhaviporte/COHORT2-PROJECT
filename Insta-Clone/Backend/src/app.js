@@ -17,6 +17,10 @@ const authRouter = require("./routes/auth.routes")
 const postRouter = require("./routes/post.routes")
 const userRouter = require("./routes/user.routes")
 
+// Root route (for checking if backend is live)
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀")
+})
 
 //using routes 
 app.use("/api/auth", authRouter)
