@@ -1,0 +1,19 @@
+frontent me 4-layer hote hai
+
+UI layer => UI dikhana bs kam hota hai ui ka 
+
+
+Hooks(orchestration) => manage krna state or API layer ko
+
+satate layer => state manage krna
+             => loading
+             => user
+             => post list
+             => error
+
+
+API layer => backend se communate krna intirelly 
+
+ish folder structure ko follow krne ka reason ye hai ki ham team me kam kr skte hai easly bina kisi rush ke confusion ke.
+
+components file me ---> jo chize repeat ho rhi hai unko usme likh skte hai or ek sort form bnakr use kr skte hai har jgha
