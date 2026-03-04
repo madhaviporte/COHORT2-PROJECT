@@ -1,7 +1,7 @@
 import React, { useEffect, useRef} from 'react'
 import *as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
-import { OrbitControls, useAnimations, useGLTF, useTexture } from '@react-three/drei'
+import { OrbitControls, useAnimations, useGLTF, useProgress, useTexture } from '@react-three/drei'
 import { color, sample, texture } from 'three/tsl'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -28,7 +28,7 @@ gsap.registerPlugin(ScrollTrigger)
     actions["Take 001"].play()
   }, [actions])
 
-  const[normalMap,sampleMatCap] =(useTexture(["/models/dog_normals.jpg", "/matcap/mat-2.png"]))
+  const[normalMap] =(useTexture(["/models/dog_normals.jpg",]))
     .map(texture => {
       texture.colorSpace = THREE.SRGBColorSpace
       return texture
@@ -40,15 +40,74 @@ gsap.registerPlugin(ScrollTrigger)
       return texture
     })
 
+    const [
+      mat1,
+      mat2,
+      mat3,
+      mat4,
+      mat5,
+      mat6,
+      mat7,
+      mat8,
+      mat9,
+      mat10,
+      mat11,
+      mat12,
+      mat13,
+      mat14,
+      mat15,
+      mat16,
+      mat17,
+      mat18,
+      mat19,
+      mat20,
+    ] = (useTexture([
+      "/matcap/mat-1.png",
+      "/matcap/mat-2.png",
+      "/matcap/mat-3.png",
+      "/matcap/mat-4.png",
+      "/matcap/mat-5.png",
+      "/matcap/mat-6.png",
+      "/matcap/mat-7.png",
+      "/matcap/mat-8.png",
+      "/matcap/mat-9.png",
+      "/matcap/mat-10.png",
+      "/matcap/mat-11.png",
+      "/matcap/mat-12.png",
+      "/matcap/mat-13.png",
+      "/matcap/mat-14.png",
+      "/matcap/mat-15.png",
+      "/matcap/mat-16.png",
+      "/matcap/mat-17.png",
+      "/matcap/mat-18.png",
+      "/matcap/mat-19.png",
+      "/matcap/mat-20.png"
+    ])).map(texture =>{
+      texture.colorSpace = THREE.SRGBColorSpace
+      return texture
+    })
+
+    const material = useRef({
+      uMatcap1:{value:mat2},
+      uMatcap2:{value:mat19},
+      useProgress:{value:0.3}
+    })
+
   const dogMaterial = new THREE.MeshMatcapMaterial({
     normalMap: normalMap,
-    matcap: sampleMatCap
+    matcap: mat2
   })
 
   const branchMaterial = new THREE.MeshMatcapMaterial({
     normalMap:branchNormalsMap,
     map:branchMap
   })
+
+  function onBeforeCompile(shader){
+    
+  }
+
+  // dogMaterial.onBeforeCompile = onBeforeCompile
 
   model.scene.traverse((child) => {
     if (child.name.includes("DOG")) {

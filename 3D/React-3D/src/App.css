@@ -207,7 +207,7 @@ main:has(#section-2 .title[img-title ="phone"]:hover) .images #phone{
 }
 main:has(#section-2 .title[img-title ="kikk"]:hover) .images #kikk{
   opacity: 1;
-  background-color: rgb(4,7,24);
+  background-color: rgb(1,15,92,0.679);
 }
 main:has(#section-2 .title[img-title ="kennedy"]:hover) .images #kennedy{
   opacity: 1;
@@ -215,5 +215,5 @@ main:has(#section-2 .title[img-title ="kennedy"]:hover) .images #kennedy{
 }
 main:has(#section-2 .title[img-title ="opera"]:hover) .images #opera{
   opacity: 1;
-  background-color: rgb(4,7,24);
+  background-color: rgb(176,4,4);
 }
