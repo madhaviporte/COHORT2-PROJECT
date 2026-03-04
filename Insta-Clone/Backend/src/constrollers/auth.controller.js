@@ -2,31 +2,31 @@ const userModel = require('../models/user.model.js')
 const bcrypt = require("bcryptjs")
 const jwt = require('jsonwebtoken')
 
- async function registerController (req, res){
+async function registerController(req, res) {
     const { email, username, password, bio, profileImage } = req.body
 
 
     const isUserAlreadyExists = await userModel.findOne({
-        $or:[
-            {username},
-            {email} 
+        $or: [
+            { username },
+            { email }
         ]
     })
-    if(isUserAlreadyExists){
+    if (isUserAlreadyExists) {
         return res.status(409)
-        .json({
-            message: "user already exists" + (isUserAlreadyExists.email == email ? "Email already exists" : "Username already exists ")
-        })
+            .json({
+                message: "user already exists" + (isUserAlreadyExists.email == email ? "Email already exists" : "Username already exists ")
+            })
     }
 
-    const hash =await bcrypt.hash(password, 10)
+    const hash = await bcrypt.hash(password, 10)
 
     const user = await userModel.create({
         username,
         email,
         bio,
         profileImage,
-        password:hash
+        password: hash
     })
 
     const token = jwt.sign({
@@ -34,94 +34,104 @@ const jwt = require('jsonwebtoken')
         // data unique hona chahiye
 
         id: user._id,
-        username:user.username 
+        username: user.username
 
     },
-    process.env.JWT_SECRET,
-    {expiresIn: "1d"}
-)
+        process.env.JWT_SECRET,
+        { expiresIn: "1d" }
+    )
 
-res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        maxAge: 24 * 60 * 60 * 1000
+    })
 
-res.status(201).json({
-    message:"User Register successfully",
-    user:{
-        email:user.email,
-        username: user.username,
-        bio:user.bio,
-        profileImage: user.profileImage
-    }
-})
+    res.status(201).json({
+        message: "User Register successfully",
+        user: {
+            email: user.email,
+            username: user.username,
+            bio: user.bio,
+            profileImage: user.profileImage
+        }
+    })
 
 
 }
 
 
-async function loginController(req,res){
-    const {username, email,password} = req.body
+async function loginController(req, res) {
+    const { username, email, password } = req.body
 
 
     const user = await userModel.findOne({
-        $or:[
+        $or: [
             {
-              username : username    
+                username: username
             },
             {
-            email:email
+                email: email
             }
         ]
     }).select("+password")
 
-    if(!user){
+    if (!user) {
         return res.status(404).json({
-            message:"User not found"
-    })
+            message: "User not found"
+        })
     }
 
 
     const ispasswordValid = await bcrypt.compare(password, user.password)
 
-    if(!ispasswordValid){
+    if (!ispasswordValid) {
         return res.status(401).json({
             message: "password invalid"
         })
     }
 
     const token = jwt.sign(
-        {id: user._id, username: user.username},
+        { id: user._id, username: user.username },
         process.env.JWT_SECRET,
-        {expiresIn: "1d"}
+        { expiresIn: "1d" }
     )
-    res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        maxAge: 24 * 60 * 60 * 1000
+    })
 
     res.status(200)
-    .json({
-        message: "user LoggedIn successfully.",
-        user:{
-            username:user.username,
-            email:user.email,
+        .json({
+            message: "user LoggedIn successfully.",
+            user: {
+                username: user.username,
+                email: user.email,
+                bio: user.bio,
+                profileImage: user.profileImage
+            }
+        })
+}
+
+async function getMeController(req, res) {
+    const userId = req.user.id
+
+    const user = await userModel.findById(userId)
+
+    res.status(200).json({
+        user: {
+            username: user.username,
+            email: user.email,
             bio: user.bio,
             profileImage: user.profileImage
         }
     })
 }
 
-async function getMeController(req,res){
-    const userId = req.user.id
-
-    const user = await userModel.findById(userId)
-
-    res.status(200).json({
-        user:{
-            username:user.username,
-            email:user.email,
-            bio:user.bio,
-            profileImage: user.profileImage
-        }
-    })
-}
-
-module.exports ={
+module.exports = {
     registerController,
     loginController,
     getMeController
