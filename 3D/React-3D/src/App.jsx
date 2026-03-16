@@ -1,42 +1,38 @@
-import React from 'react'
 import './App.css'
 import Dog from './components/Dog'
 import { Canvas } from '@react-three/fiber'
 
+function App() {
 
-const App = () => {
+
   return (
-
-    <main>
-
-      <div className="images">
-        <img id='tomorrowland' src="/models/tomorrowland.png" alt="" />
-        <img id='navy-pier' src="/models/navy-pier.png" alt="" />
-        <img id='msi-chicago' src="/models/msi-Chicago.png" alt="" />
-        <img id='phone' src="/models/phone.png" alt="" />
-        <img id='kikk' src="/models/kikk.png" alt="" />
-        <img id='kennedy' src="/models/kennedy.png" alt="" />
-        <img id='opera' src="/models/opera.png" alt="" />
-      </div>
-    <Canvas 
-    id='canvas-elem'
-    style={{
-      height:'100vh',
-      width:'100vw',
-      position:'fixed',
-      top:0,
-      left:0,
-      zIndex:1,
-      // backgroundImage:'url(/models/background-l.png)',
-      // backgroundRepeat:'no-repeat',
-      // backgroundSize:'cover'
-    }}>
-      <Dog/>
-    </Canvas>
-    <section id='section-1'>
-      <nav>
-        <div className="nav-elem">
-          <svg xmlns="http://www.w3.org/2000/svg" fill='white' viewBox="0 0 401.23099 116.838">
+    <>
+      <main>
+        <div className="images">
+          <img id='tomorrowland' src="/tommorowland.png" alt="" />
+          <img id='navy-pier' src="/navy-pier.png" alt="" />
+          <img id='msi-chicago' src="/msi-chicago.png" alt="" />
+          <img id='phone' src="/phone.png" alt="" />
+          <img id='kikk' src="/kikk.png" alt="" />
+          <img id='kennedy' src="/kennedy.png" alt="" />
+          <img id='opera' src="/opera.png" alt="" />
+        </div>
+        <Canvas
+          id='canvas-elem'
+          style={{
+            height: "100vh",
+            width: "100vw",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            zIndex: 1,
+          }} >
+          <Dog />
+        </Canvas>
+        <section id='section-1' >
+          <nav>
+            <div className="nav-elem">
+              <svg xmlns="http://www.w3.org/2000/svg" fill='white' viewBox="0 0 401.23099 116.838">
                 <path d="M97.9212,84.4793c0-13.21301-7.2132-23.3924-25.54961-23.3924h-19.6172v46.7851h19.6172c18.3364,0,25.54961-10.1797,25.54961-23.3927Zm-13.3478,0c0,9.2356-5.1908,12.6737-12.404,12.6737h-6.6739v-25.3474h6.6739c7.2132,0,12.404,3.4381,12.404,12.6737Z"></path>
                 <path d="M100.972,107.872h37.078v-10.6516h-24.33701v-8.0222h21.37v-10.112h-21.37v-7.348h23.73v-10.6513h-36.47099v46.7851Z"></path>
                 <path d="M181.211,77.3335c0-11.7973-7.55-16.2466-19.28-16.2466h-20.29199v46.7851h12.741v-14.2919h7.55099c11.73,0,19.28-4.4493,19.28-16.2466Zm-13.213,0c0,4.5841-2.157,6.47169-7.34801,6.47169h-6.26999v-12.9434h6.26999c5.19101,0,7.34801,1.8876,7.34801,6.4717Z"></path>
@@ -53,65 +49,72 @@ const App = () => {
                 <path d="M128.905,30.638h10.41501c-1.21701,4.802-5.74901,7.5074-11.22701,7.5074-7.169,0-11.904-5.2754-11.904-13.8649,0-7.8455,4.32899-13.5944,11.769-13.5944,4.464,0,8.31899,1.8938,9.40099,6.1547h13.59401c-1.48801-10.68614-10.88901-16.8408-23.26601-16.8408-15.758,0-24.95699,9.67161-24.95699,24.2805,0,14.6765,9.46899,24.2805,22.184,24.2805,7.237,0,11.76801-2.7054,14.88-6.5605v5.7489h11.29399V21.3046h-22.183v9.3334Z"></path>
                 <path d="M30.4351,61.1758h-10.4155L0,116.838H10.3479L30.4351,61.1758Z"></path>
               </svg>
-        </div>
-      <div className="nav-elem">
-        <i className="ri-arrow-right-s-line"></i>
-      </div> Our Show reel
-      <div className="nav-elem">
-        <i className="ri-menu-3-line"></i>
-      </div>
-      </nav>
-      <div className="middle">
-        <div className="left">
-          <h1>WE <br/> Make <br />Good <br />Shit</h1>
-        </div>
-        <div className="right"></div>
-      </div>
-      <div className="bottom">
-        <div className="left"></div>
-        <div className="right">
-          <p>Dogstudio is a multidisiciplinary <br />creative studio at the intersection <br /> of art, design and technology.</p>
-        </div>
-      </div>
+            </div>
+            <div className="nav-elem">
+              <i className="ri-arrow-right-s-line"></i> Our Show reel
+            </div>
+            <div className="nav-elem">
+              <i className="ri-menu-3-line"></i>
+            </div>
+          </nav>
+          <div className="middle">
+            <div className="left">
+              <h1>WE <br /> Make <br /> Good <br />Shit</h1>
+            </div>
+            <div className="right"></div>
+          </div>
+          <div className="bottom">
+            <div className="left"></div>
+            <div className="right">
+              <p>
+                Dogstudio is a multidisciplinary <br />
+                creative studio at the intersection <br />
+                of art, design and technology.
+              </p>
+            </div>
+          </div>
 
-      <div className="first-line"></div>
-      <div className="second-line"></div>
-    </section>
-    <section id='section-2'>
-      <div className="titles">
-        <div img-title="tomorrowland" className="title">
-          <small>2020 -ONGOING</small>
-          <h1>Tomorrowland</h1>
-        </div>
-        <div img-title="navy-pier" className="title">
-          <small>2020 - ONGOING</small>
-          <h1>Navy Pier</h1>
-        </div>
-        <div img-title="msi-chicago" className="title">
-          <small>2020 - ONGOING</small>
-          <h1> MSI Chicago </h1>
-        </div>
-        <div img-title="phone" className="title">
-          <small>2020 -ONGOING</small>
-          <h1>This Was Louise's Phone</h1>
-        </div>
-        <div img-title="kikk" className="title">
-          <small>2020 -ONGOING</small>
-          <h1>KIKK Festival 2018</h1>
-        </div>
-        <div img-title="kennedy" className="title">
-          <small>2020 -ONGOING</small>
-          <h1>The Kennedy Center</h1>
-        </div>
-        <div img-title="opera" className="title">
-          <small>2020 -ONGOING</small>
-          <h1>Royal Opera Of Wallonia</h1>
-        </div>
-        
-      </div>
-    </section>
-    <section id='section-3'></section>
-  </main>
+          <div className="first-line"></div>
+          <div className="second-line"></div>
+
+        </section>
+        <section id='section-2' >
+          <div className="titles">
+            <div img-title="tomorrowland" className="title">
+              <small>2020 - ONGOING</small>
+              <h1>Tomorrowland</h1>
+            </div>
+            <div img-title="navy-pier" className="title">
+              <small>2020 - ONGOING</small>
+              <h1> Navy Pier</h1>
+            </div>
+            <div img-title="msi-chicago" className="title">
+              <small>2020 - ONGOING</small>
+              <h1>  MSI Chicago</h1>
+            </div>
+            <div img-title="phone" className="title">
+              <small>2020 - ONGOING</small>
+              <h1>This Was Louise’s Phone</h1>
+            </div>
+            <div img-title="kikk" className="title">
+              <small>2020 - ONGOING</small>
+              <h1>KIKK Festival 2018</h1>
+            </div>
+            <div img-title="kennedy" className="title">
+              <small>2020 - ONGOING</small>
+              <h1>The Kennedy Center</h1>
+            </div>
+            <div img-title="opera" className="title">
+              <small>2020 - ONGOING</small>
+              <h1>Royal Opera Of Wallonia</h1>
+            </div>
+          </div>
+
+
+        </section>
+        <section id='section-3' ></section>
+      </main>
+    </>
   )
 }
 
