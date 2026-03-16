@@ -274,6 +274,38 @@ main {
     font-size: 2vw;
     width: 45%;
 }
+.left .price {
+    font-size: 5vw;
+}
+
+.left .price .gray {
+    font-size: 3vw;
+    font-weight: 800;
+}
+
+.section1 .left .tags h4 {
+    padding: 10px 20px;
+    border-radius: 4px;
+    white-space: nowrap;
+    background-color: var(--gray);
+}
+
+.section1 .left .cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.cta button {
+    background-color: var(--green);
+    padding: 15px 0;
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+}
 
 }
 
@@ -281,4 +313,42 @@ main {
     .section1 .left h1 {
         font-size: 6vw;
     }
+}
+
+.section2{
+    padding: 100px 70px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+}
+.section2 h1{
+ font-family: neu;
+ font-size: 150px;
+ background-image: url(./back.webp);
+ background-size: cover;
+ background-clip: text;
+ position: relative;
+ color: transparent;
+}
+.section2 h1.bloom{
+    position: absolute;
+    filter: blur(80px);
+}
+.section2 h3{
+    font-size: 45px;
+    font-family: nue;
+    text-transform: capitalize;
+    letter-spacing: -1px;
+}
+
+@media (max-width:900px){
+    .section2 h1{
+        white-space: nowrap;
+ font-size: 15vw;
+}
+.section2 h3{
+    text-align: center;
+    font-size: 4vw;
+}
 }
