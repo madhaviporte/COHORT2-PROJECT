@@ -112,7 +112,10 @@ function App() {
 
 
         </section>
-        <section id='section-3' ></section>
+
+        <section id='section-3' >
+          
+        </section>
       </main>
     </>
   )

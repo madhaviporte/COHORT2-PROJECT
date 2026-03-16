@@ -90,7 +90,7 @@ gsap.registerPlugin(ScrollTrigger)
     const material = useRef({
       uMatcap1:{value:mat2},
       uMatcap2:{value:mat19},
-      useProgress:{value:0.3}
+      uProgress:{value:0.3}
     })
 
   const dogMaterial = new THREE.MeshMatcapMaterial({
@@ -104,10 +104,38 @@ gsap.registerPlugin(ScrollTrigger)
   })
 
   function onBeforeCompile(shader){
-    
+    shader.uniforms.uMatcapTexture1 = material.current.uMatcap1
+        shader.uniforms.uMatcapTexture2 = material.current.uMatcap2
+        shader.uniforms.uProgress = material.current.uProgress
+
+        // Store reference to shader uniforms for GSAP animation
+
+        shader.fragmentShader = shader.fragmentShader.replace(
+            "void main() {",
+            `
+        uniform sampler2D uMatcapTexture1;
+        uniform sampler2D uMatcapTexture2;
+        uniform float uProgress;
+
+        void main() {
+        `
+        )
+
+        shader.fragmentShader = shader.fragmentShader.replace(
+            "vec4 matcapColor = texture2D( matcap, uv );",
+            `
+          vec4 matcapColor1 = texture2D( uMatcapTexture1, uv );
+          vec4 matcapColor2 = texture2D( uMatcapTexture2, uv );
+          float transitionFactor  = 0.2;
+          
+          float progress = smoothstep(uProgress - transitionFactor,uProgress, (vViewPosition.x+vViewPosition.y)*0.5 + 0.5);
+
+          vec4 matcapColor = mix(matcapColor2, matcapColor1, progress );
+        `
+        )
   }
 
-  // dogMaterial.onBeforeCompile = onBeforeCompile
+  dogMaterial.onBeforeCompile = onBeforeCompile
 
   model.scene.traverse((child) => {
     if (child.name.includes("DOG")) {
@@ -124,7 +152,7 @@ gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger:'#section-1',
-        endTrigger:'#section-3',
+        endTrigger:'#section-4',
         start:'top top',
         end:'bottom bottom',
         markers:true, 
@@ -150,6 +178,114 @@ gsap.registerPlugin(ScrollTrigger)
       y:"-=0.01"
     },"third")
   },[])
+
+   useEffect(() => {
+
+        document.querySelector(`.title[img-title="tomorrowland"]`).addEventListener("mouseenter", () => {
+            material.current.uMatcap1.value = mat19
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+        document.querySelector(`.title[img-title="navy-pier"]`).addEventListener("mouseenter", () => {
+
+            material.current.uMatcap1.value = mat8
+            
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+        document.querySelector(`.title[img-title="msi-chicago"]`).addEventListener("mouseenter", () => {
+
+            material.current.uMatcap1.value = mat9
+            
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+        document.querySelector(`.title[img-title="phone"]`).addEventListener("mouseenter", () => {
+
+            material.current.uMatcap1.value = mat12
+            
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+        document.querySelector(`.title[img-title="kikk"]`).addEventListener("mouseenter", () => {
+
+            material.current.uMatcap1.value = mat10
+            
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+        document.querySelector(`.title[img-title="kennedy"]`).addEventListener("mouseenter", () => {
+
+            material.current.uMatcap1.value = mat8
+            
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+        document.querySelector(`.title[img-title="opera"]`).addEventListener("mouseenter", () => {
+
+            material.current.uMatcap1.value = mat13
+            
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+        document.querySelector(`.titles`).addEventListener("mouseleave", () => {
+
+            material.current.uMatcap1.value = mat2
+            
+            gsap.to(material.current.uProgress, {
+                value: 0.0,
+                duration: 0.3,
+                onComplete: () => {
+                    material.current.uMatcap2.value = material.current.uMatcap1.value
+                    material.current.uProgress.value = 1.0
+                }
+            })
+        })
+
+    }, [])
+
 
   return (
     <>
