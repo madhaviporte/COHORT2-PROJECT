@@ -46,7 +46,7 @@ src/
 
 # Clone the repo
 
-git clone https://github.com/madhaviporte/COHORT2-PROJECT/edit/main/Landing-Page/Animated%20website/
+git clone https://github.com/madhaviporte/COHORT2-PROJECT/edit/main/Landing-Page/Animated%20website
 
 # Go to project folder
 
