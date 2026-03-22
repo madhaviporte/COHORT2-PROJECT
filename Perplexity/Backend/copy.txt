@@ -1,0 +1,12 @@
+PERPLEXITY
+
+Authentication system
+-chat with Ai
+-chat history
+-message storage
+-Ai with internet reserch feature
+
+Generatinve Ai = content generate krna (text,code,image,audio,video)
+
+AI service provider = 1.training an LLM 2. Hosting an LLM, 3.Providing APIs to access the LLM
+ex. openAI, Cohere,Google,microsoft,anthropic,Mistral, etc.
