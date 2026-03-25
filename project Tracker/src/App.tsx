@@ -4,50 +4,24 @@ import Kanban from "./components/Kanban";
 import ListView from "./components/ListView";
 import TimelineView from "./components/TimelineView";
 import ViewButtons from "./components/ViewButtons";
+import ActiveUsers from "./components/ActiveUsers";
 
 function App() {
   const [view, setView] = useState<"kanban" | "list" | "timeline">("kanban");
   const [tasks, setTasks] = useState<Task[]>([]);
-
-  const [title, setTitle] = useState("");
-  const [assignee, setAssignee] = useState("");
-  const [status, setStatus] = useState<
-    "todo" | "in-progress" | "review" | "done"
-  >("todo");
-
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
-  // ✅ FILTER STATES
-  const [statusFilter, setStatusFilter] = useState<string[]>([]);
-  const [priorityFilter, setPriorityFilter] = useState<string[]>([]);
-  const [assigneeFilter, setAssigneeFilter] = useState<string[]>([]);
-
-  // ✅ LIVE USERS (COLLABORATION)
   const [users, setUsers] = useState([
     { id: "u1", name: "A", color: "bg-red-500", taskId: "1" },
     { id: "u2", name: "B", color: "bg-green-500", taskId: "2" },
     { id: "u3", name: "C", color: "bg-blue-500", taskId: "1" },
   ]);
 
-  // ✅ RANDOM DATA GENERATOR
-  const statuses = ["todo", "in-progress", "review", "done"] as const;
-  const priorities = ["low", "medium", "high", "critical"] as const;
-
-  const generateTasks = () => {
-    return Array.from({ length: 500 }, (_, i) => ({
-      id: i.toString(),
-      title: `Task ${i}`,
-      status: statuses[Math.floor(Math.random() * statuses.length)],
-      priority: priorities[Math.floor(Math.random() * priorities.length)],
-      assignee: `${Math.floor(Math.random() * 6)}`,
-      dueDate: new Date(
-        Date.now() + Math.random() * 7 * 24 * 60 * 60 * 1000
-      ).toISOString(),
-    }));
-  };
-
-  // ✅ DEFAULT DATA
   useEffect(() => {
+ const savedTasks = localStorage.getItem("tasks");
+ if(savedTasks){
+  setTasks(JSON.parse(savedTasks))
+ }else{
     setTasks([
       {
         id: "1",
@@ -66,9 +40,10 @@ function App() {
         dueDate: new Date().toISOString(),
       },
     ]);
+  };
   }, []);
 
-  // ✅ SIMULATE LIVE USERS
+  //  LIVE USERS MOVE
   useEffect(() => {
     const interval = setInterval(() => {
       setUsers((prev) =>
@@ -86,191 +61,77 @@ function App() {
     return () => clearInterval(interval);
   }, [tasks]);
 
-  // ✅ ADD TASK
-  const addTask = () => {
-    if (!title.trim()) return;
+  //  GENERATE 500 TASKS
+  const generateTasks = () => {
+    const statuses = ["todo", "in-progress", "review", "done"] as const;
+    const priorities = ["low", "medium", "high", "critical"] as const;
 
-    const newTask: Task = {
-      id: Date.now().toString(),
-      title,
-      status,
-      priority: "medium",
-      assignee,
+    return Array.from({ length: 500 }, (_, i) => ({
+      id: i.toString(),
+      title: `Task ${i}`,
+      status: statuses[Math.floor(Math.random() * 4)],
+      priority: priorities[Math.floor(Math.random() * 4)],
+      assignee: `${Math.floor(Math.random() * 6)}`,
       dueDate: new Date().toISOString(),
-    };
-
-    setTasks((prev) => [...prev, newTask]);
-
-    setTitle("");
-    setAssignee("");
-    setStatus("todo");
+    }));
   };
-
-  // ✅ UPDATE TASK
-  const updateTask = (updatedTask: Task) => {
-    setTasks((prev) =>
-      prev.map((t) => (t.id === updatedTask.id ? updatedTask : t))
-    );
-    setEditingTask(null);
-  };
-
-  // ✅ FILTER LOGIC
-  const filteredTasks = tasks.filter((task) => {
-    return (
-      (statusFilter.length === 0 || statusFilter.includes(task.status)) &&
-      (priorityFilter.length === 0 ||
-        priorityFilter.includes(task.priority)) &&
-      (assigneeFilter.length === 0 ||
-        assigneeFilter.includes(task.assignee))
-    );
-  });
-
-  // ✅ URL SYNC
-  useEffect(() => {
-    const params = new URLSearchParams();
-
-    if (statusFilter.length) params.set("status", statusFilter.join(","));
-    if (priorityFilter.length)
-      params.set("priority", priorityFilter.join(","));
-    if (assigneeFilter.length)
-      params.set("assignee", assigneeFilter.join(","));
-
-    window.history.replaceState({}, "", "?" + params.toString());
-  }, [statusFilter, priorityFilter, assigneeFilter]);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white flex flex-col items-center p-6">
-      <div className="w-full max-w-6xl flex flex-col items-center">
+    <div className="h-screen overflow-hidden bg-gray-950 text-white flex">
 
-        {/* HEADER */}
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          Project Tracker
-        </h1>
+      {/* LEFT SIDEBAR (buttons untouched) */}
+      <div className="w-64 bg-gray-900 p-4 border-r border-gray-800 h-full">
+        <h2 className="text-xl font-bold mb-6">Click Me</h2>
 
-        {/* 🔥 LIVE USERS BAR */}
-        <div className="flex gap-2 mb-4 items-center">
-          <span>{users.length} people viewing</span>
-          {users.map((u) => (
-            <div
-              key={u.id}
-              className={`w-6 h-6 rounded-full flex items-center justify-center text-xs text-white ${u.color}`}
-            >
-              {u.name}
-            </div>
-          ))}
-        </div>
-
-        {/* BUTTONS */}
         <ViewButtons
           setView={setView}
-          addTask={addTask}
+          addTask={() =>
+            setTasks((prev) => [
+              ...prev,
+              {
+                id: Date.now().toString(),
+                title: "New Task",
+                status: "todo",
+                priority: "medium",
+                assignee: "1",
+                dueDate: new Date().toISOString(),
+              },
+            ])
+          }
           generateTasks={() => setTasks(generateTasks())}
         />
+      </div>
 
-        {/* FILTER BAR */}
-        <div className="flex gap-2 mb-4 flex-wrap justify-center">
+      {/* MAIN */}
+      <div className="flex-1 p-6 flex flex-col h-full">
 
-          <select
-            onChange={(e) =>
-              setStatusFilter(e.target.value ? [e.target.value] : [])
-            }
-            className="px-3 py-2 bg-gray-700 rounded"
-          >
-            <option value="">All Status</option>
-            <option value="todo">Todo</option>
-            <option value="in-progress">In Progress</option>
-            <option value="review">Review</option>
-            <option value="done">Done</option>
-          </select>
+       <div className="flex justify-between items-center mb-6">
 
-          <select
-            onChange={(e) =>
-              setPriorityFilter(e.target.value ? [e.target.value] : [])
-            }
-            className="px-3 py-2 bg-gray-700 rounded"
-          >
-            <option value="">All Priority</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            <option value="critical">Critical</option>
-          </select>
+  <h1 className="text-3xl font-bold">
+    Project Tracker
+  </h1>
 
-          <input
-            placeholder="Assignee"
-            onChange={(e) =>
-              setAssigneeFilter(e.target.value ? [e.target.value] : [])
-            }
-            className="px-3 py-2 bg-gray-700 rounded"
-          />
+  <ActiveUsers users={users} viewerCount={10} />
 
-          {/* CLEAR */}
-          {(statusFilter.length ||
-            priorityFilter.length ||
-            assigneeFilter.length) > 0 && (
-            <button
-              onClick={() => {
-                setStatusFilter([]);
-                setPriorityFilter([]);
-                setAssigneeFilter([]);
-              }}
-              className="px-3 py-2 bg-red-600 rounded"
-            >
-              Clear
-            </button>
-          )}
-        </div>
-
-        {/* ADD TASK INPUTS */}
-        <div className="flex gap-2 mb-6 flex-wrap justify-center">
-          <input
-            type="text"
-            placeholder="Task Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="px-3 py-2 rounded bg-gray-700 text-white"
-          />
-
-          <input
-            type="text"
-            placeholder="Assignee"
-            value={assignee}
-            onChange={(e) => setAssignee(e.target.value)}
-            className="px-3 py-2 rounded bg-gray-700 text-white"
-          />
-
-          <select
-            value={status}
-            onChange={(e) => setStatus(e.target.value as any)}
-            className="px-3 py-2 rounded bg-gray-700 text-white"
-          >
-            <option value="todo">Todo</option>
-            <option value="in-progress">In Progress</option>
-            <option value="review">Review</option>
-            <option value="done">Done</option>
-          </select>
-        </div>
+</div>
 
         {/* CONTENT */}
-        <div className="w-full bg-gray-800 p-4 rounded-xl">
+        <div className="bg-gray-900 p-4 rounded-xl flex-1 overflow-auto">
           {view === "kanban" && (
             <Kanban
-              tasks={filteredTasks}
+              tasks={tasks}
               setTasks={setTasks}
               setEditingTask={setEditingTask}
               users={users}
             />
           )}
 
-          {view === "list" && <ListView tasks={filteredTasks} />}
-
-          {view === "timeline" && (
-            <TimelineView tasks={filteredTasks} />
-          )}
+          {view === "list" && <ListView tasks={tasks} />}
+          {view === "timeline" && <TimelineView tasks={tasks} />}
         </div>
       </div>
 
-      {/* EDIT MODAL */}
+      {/* EDIT MODAL (ERROR FIX) */}
       {editingTask && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
           <div className="bg-gray-800 p-6 rounded-xl w-96">
@@ -322,7 +183,14 @@ function App() {
 
               <button
                 className="px-3 py-1 bg-blue-600 rounded"
-                onClick={() => updateTask(editingTask)}
+                onClick={() => {
+                  setTasks((prev) =>
+                    prev.map((t) =>
+                      t.id === editingTask.id ? editingTask : t
+                    )
+                  );
+                  setEditingTask(null);
+                }}
               >
                 Save
               </button>

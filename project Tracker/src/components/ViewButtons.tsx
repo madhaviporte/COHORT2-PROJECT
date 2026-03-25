@@ -10,46 +10,55 @@ export default function ViewButtons({
   generateTasks,
 }: Props) {
   return (
-    <div className="flex gap-3 mb-6 justify-center flex-wrap">
+    <div className="flex flex-col h-full">
 
-      {/* VIEW BUTTONS */}
-      <button
-        onClick={() => setView("kanban")}
-        className="px-4 py-2 bg-gray-700 rounded-full hover:bg-gray-600 active:scale-95 transition"
-      >
-        Kanban
-      </button>
+      {/* TOP SECTION (VIEWS) */}
+      <div className="flex flex-col gap-4">
 
-      <button
-        onClick={() => setView("list")}
-        className="px-4 py-2 bg-gray-700 rounded-full hover:bg-gray-600 active:scale-95 transition"
-      >
-        List
-      </button>
+        <p className="text-gray-400 text-xs uppercase">Views</p>
 
-      <button
-        onClick={() => setView("timeline")}
-        className="px-4 py-2 bg-gray-700 rounded-full hover:bg-gray-600 active:scale-95 transition"
-      >
-        Timeline
-      </button>
+        <button
+          onClick={() => setView("kanban")}
+          className="px-5 py-3 bg-gray-800 rounded-xl hover:bg-gray-700 active:scale-95 transition"
+        >
+          Kanban
+        </button>
 
-      {/* ADD TASK */}
-      <button
-        onClick={addTask}
-        className="px-4 py-2 bg-blue-700 rounded-full hover:bg-blue-600 active:scale-95 transition"
-      >
-        + Add Task
-      </button>
+        <button
+          onClick={() => setView("list")}
+          className="px-5 py-3 bg-gray-800 rounded-xl hover:bg-gray-700 active:scale-95 transition"
+        >
+          List
+        </button>
 
-      {/* GENERATE TASKS */}
-      <button
-        onClick={generateTasks}
-        className="px-4 py-2 bg-purple-700 rounded-full hover:bg-purple-600 active:scale-95 transition"
-      >
-        Generate 500 Tasks
-      </button>
+        <button
+          onClick={() => setView("timeline")}
+          className="px-5 py-3 bg-gray-800 rounded-xl hover:bg-gray-700 active:scale-95 transition"
+        >
+          Timeline
+        </button>
+      </div>
 
+      {/* 🔹 BOTTOM SECTION (ACTIONS) */}
+      <div className="flex flex-col gap-4 mt-10">
+
+        <p className="text-gray-400 text-xs uppercase">Actions</p>
+
+        <button
+          onClick={addTask}
+          className="px-5 py-3 bg-blue-800 rounded-xl hover:bg-blue-700 active:scale-95 transition"
+        >
+          + Add Task
+        </button>
+
+        <button
+          onClick={generateTasks}
+          className="px-5 py-3 bg-purple-800 rounded-xl hover:bg-purple-700 active:scale-95 transition"
+        >
+          Generate Tasks
+        </button>
+
+      </div>
     </div>
   );
 }
