@@ -5,6 +5,10 @@ import { AuthProvider } from './features/auth/auth.context'
 import "./features/shared/global.scss"
 import { PostContextProvider } from './features/posts/post.context'
 
+
+
+
+
 const App = () => {
   return (
     <AuthProvider>
