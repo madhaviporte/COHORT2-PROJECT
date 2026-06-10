@@ -1,0 +1,16 @@
+React.js - library
+: kisi ek particular function ko prevent krne me kam ata hai
+ex-GSAP
+-no SEO(serach engine optimization)
+- no Routing(redux) limited feature hai bs
+- bad performance
+
+Next.js - Framework
+the React Fromawork for the web
+sbb ek sath ho jayega
+-SSR(server side rendring)
+-SSG(static site Generation)
+-Image Optimization 
+-Better SEO 
+-inbuild Routing
+-Backend Support
