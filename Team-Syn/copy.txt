@@ -1,0 +1,11 @@
+Team-sync 
+Feacture based Architechture
+
+auth
+employee
+department
+task
+profile
+
+
+redux
