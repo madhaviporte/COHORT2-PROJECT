@@ -1,7 +1,7 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import { Sparkles, Mail, Lock, User } from 'lucide-react';
+import { useAuth } from '../../hooks/useAuth';
 
 const GoogleIcon = () => (
   <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
@@ -13,13 +13,7 @@ const GoogleIcon = () => (
 );
 
 const Register = () => {
-  const { register, handleSubmit, formState: { errors, isValid } } = useForm({
-    mode: 'onChange'
-  });
-
-  const onSubmit = (data) => {
-    console.log('Register Data:', data);
-  };
+  let { register, handleSubmit, onRegisterSubmit, errors, isValid } = useAuth();
 
   return (
     <div className="flex min-h-screen bg-[#09090b] text-white selection:bg-violet-500/30">
@@ -68,7 +62,7 @@ const Register = () => {
             <p className="text-gray-400 text-sm">Experience the future of collaborative data intelligence.</p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <form onSubmit={handleSubmit(onRegisterSubmit)} className="space-y-5">
             <div className="space-y-1.5">
               <label className="text-xs font-semibold text-gray-300 tracking-wide uppercase">Full Name</label>
               <div className="relative group">
