@@ -14,7 +14,7 @@ let router = createBrowserRouter([
         element: <AuthLayout/>,
         children:[
             {
-                path:"",
+                path:"login",
                 element:<Login/>,
             },
             {
